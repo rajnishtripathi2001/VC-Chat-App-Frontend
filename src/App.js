@@ -1,13 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import ChatPage from './components/ChatPage';
-import socketIO from 'socket.io-client';
+import {io} from 'socket.io-client';
+import { useEffect } from 'react';
 
-const socket = socketIO.connect('https://vc-chat-app-backend-production.up.railway.app/');
+const socket = io('https://vc-chat-app-backend-production.up.railway.app/');
 
 //http://localhost:4000
 //https://vc-chat-app-backend-production.up.railway.app/
 function App() {
+  useEffect(()=>{
+    socket.on('connect',()=>{
+      console.log("Connected to backend");
+    })
+  },[]);
+
   return (
     <BrowserRouter>
       <div>
