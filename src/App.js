@@ -4,8 +4,8 @@ import ChatPage from './components/ChatPage';
 import {io} from 'socket.io-client';
 import { useEffect } from 'react';
 
-const socket = io('https://vc-chat-app-backend-production.up.railway.app/');
-//http://localhost:4000
+const socket = io('https://rightful-stomach-production.up.railway.app/');
+//http://localhost:4000 use this for local development
 
 function App() {
   useEffect(()=>{
